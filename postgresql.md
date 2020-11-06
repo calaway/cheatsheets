@@ -44,3 +44,9 @@ help
 \d table_name
 \d+ table_name -- More detail
 ```
+
+## SQL
+```sql
+-- View full table contents
+TABLE table_name;
+```
