@@ -1,28 +1,44 @@
 # Git CheatSheet
 
-## git diff
+## Subcommand Examples
+
+### git diff
 ```bash
-git diff # Show changes between commits, commit and working tree, etc
+# Changes in the working tree not yet staged for the next commit.
+git diff
+
+# Changes between the index and your last commit; what you would be committing if you run "git commit" without "-a" option.
+git diff --cached
+
+# Changes in the working tree since your last commit; what you would be committing if you run "git commit -a"
+git diff HEAD
 ```
 
-### Options
-```bash
--—cached # compares the index to the repository
-```
-
-## git rebase
-### Examples
+### git rebase
 ```bash
 # Interactively rebase the last 4 commits
-git rebase -i|--interactive HEAD~4
+git rebase (-i|--interactive) HEAD~4
 ```
 
-## git show
-### Examples
+### git revert
+```bash
+# Revert commit c780a34 and save the changes in a new commit
+git revert c780a34
+
+# Revert commit c780a34 in the working tree without creating a new commit
+git revert (-n|--no-commit) c780a34
+
+# Revert the last three commits without creating a new commit
+g revert --no-commit HEAD~3..
+```
+
+### git show
 ```bash
 # Show changes made by the commit before the last commit
 git show HEAD^
 ```
+
+### Other Notes
 git rm —cached
   remove from index, but not working directory (i.e. unstage file)
 
@@ -59,9 +75,6 @@ git commit --amend
 
 git reflog
   Print log of changes to commit that HEAD reverence, including checkouts
-
-git revert <commit>
-  Have git create a new commit that reverses changes made in a prior commit.
 
 git cherry-pick <commit>
   Apply changes from a particular commit to the current branch
