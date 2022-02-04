@@ -20,6 +20,12 @@ git diff HEAD
 git rebase (-i|--interactive) HEAD~4
 ```
 
+### git restore
+```bash
+# Drop changes to a file in the working tree
+git restore package-lock.json
+```
+
 ### git revert
 ```bash
 # Revert commit c780a34 and save the changes in a new commit
