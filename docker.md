@@ -1,6 +1,5 @@
 # Docker CheatSheet
 
-
 ## Build
 Help message
 ```bash
@@ -9,9 +8,9 @@ docker build --help
 
 ---
 
-Build an image from ./Dockerfile with name `my_image` and tag `latest`.
+Build an image from ./Dockerfile with name `my_image` and tag `v1`.
 ```bash
-docker build [--tag|-t my_image[:latest]] .
+docker build [--tag|-t my_image[:v1]] .
 ```
 
 ## Run
@@ -34,7 +33,22 @@ Options:
 -e, --env foo1=bar1 foo2=bar2 # Add a list of env vars in key=value pairs
     --env-file .env.local     # Run image with all env vars contained in `.env.local`
 -p, --publish 5000:80         # Expose port 5000 externally and map to port 80 inside the container, accepts a list
--v, --volume ~/dev:/code      # Map volume `~/dev` locally to volume `/code` inside the container, accepts a list
+-v, --volume `pwd`:/code      # Map the local current directory to the directory `/code` inside the container, accepts a list
 -d, --detach                  # Run container in background and print container ID
 -it, --interactive --tty      # Connect container to terminal to execute commands interactively
+```
+
+## Stop
+Kill one or more running containers.
+
+Example usage:
+```bash
+# Find and stop a single container
+docker container ls
+# CONTAINER ID   IMAGE      ...
+# cb4c0d8ed9e2   my_image   ...
+docker stop cb4c0 # Note that just the beginning of the ID is sufficient
+
+# Kill all running containers
+docker stop `docker container ls --quiet`
 ```
