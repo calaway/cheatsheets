@@ -23,17 +23,14 @@ sudo su - <username>
 
 ### Disk
 ```bash
-# Show mounted partitions
-df
+# See disk space used (disk free) on all mounted partitions in human readable format:
+df -h
 
 # Show block devices found on the machine (mounted or not) and any corresponding partitions it recognizes
 lsblk
 
 # List the human-readable sizes of a directory and any subdirectories, up to N levels deep
 sudo du -ah -d 1 /home
-
-# See disk space used (disk free) on all drives in human readable format:
-df -h
 
 # Or for a specific file system:
 df -h /opt/finicity/
