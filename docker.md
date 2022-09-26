@@ -52,3 +52,15 @@ docker stop cb4c0 # Note that just the beginning of the ID is sufficient
 # Kill all running containers
 docker stop `docker container ls --quiet`
 ```
+
+## Cleanup
+Good reference article: [How To Remove Docker Images, Containers, and Volumes](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
+
+```bash
+# Delete all images, containers, volumes, and networks that are not tagged or associated with a container
+docker system prune
+
+# Additionally remove any stopped containers and all unused images (not just dangling images)
+docker system prune -a
+
+```
