@@ -22,8 +22,14 @@ git rebase (-i|--interactive) HEAD~4
 
 ### git restore
 ```bash
-# Drop changes to a file in the working tree
+# Drop changes to a file in the working tree by replacing it with the copy from the repo
 git restore package-lock.json
+
+# Copy file(s) from another branch
+git restore --source=my-other-branch README.md
+
+# Copy files(s) from two versions back
+git restore --source master~2 Makefile
 ```
 
 ### git revert
